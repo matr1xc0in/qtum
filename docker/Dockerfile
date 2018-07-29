@@ -13,6 +13,9 @@ ENV HOME=/home/$QTUM_USER
 
 USER root
 
+RUN sed -i.bak -e 's/v3.7/v3.8/g' /etc/apk/repositories && rm -f /etc/apk/repositories.bak ; \
+    apk update --no-cache && apk update && apk upgrade --purge && rm -rf /var/cache/apk/*
+
 RUN addgroup -g $QTUM_GID $QTUM_USER && \
     echo $QTUM_UID && \
     adduser -D -u $QTUM_UID -G $QTUM_USER -g $QTUM_GID -h $HOME -S -s /bin/sh $QTUM_USER && \
