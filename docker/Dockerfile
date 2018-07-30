@@ -14,7 +14,7 @@ ENV HOME=/home/$QTUM_USER
 USER root
 
 RUN sed -i.bak -e 's/v3.7/v3.8/g' /etc/apk/repositories && rm -f /etc/apk/repositories.bak ; \
-    apk update --no-cache && apk update && apk upgrade --purge && rm -rf /var/cache/apk/*
+    apk update --no-cache && apk update && apk upgrade --purge && apk add curl && rm -rf /var/cache/apk/*
 
 RUN addgroup -g $QTUM_GID $QTUM_USER && \
     echo $QTUM_UID && \
@@ -22,6 +22,11 @@ RUN addgroup -g $QTUM_GID $QTUM_USER && \
     chmod g+w /etc/passwd /etc/group ; \
     mkdir -p /dapp ; \
     chown $QTUM_GID /dapp; chgrp -R $QTUM_GID /dapp ; chmod u+srwX,g+srwX /dapp ; 
+
+COPY ./Procfile /Procfile
+COPY ./qtumd-launch /usr/local/bin/qtumd-launch
+
+RUN chmod 755 /Procfile /usr/local/bin/qtumd-launch
 
 USER $QTUM_UID
 WORKDIR $HOME

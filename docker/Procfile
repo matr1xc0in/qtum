@@ -1,0 +1,3 @@
+qtumd: qtumd-launch
+
+portal: qtumportal serve --bind=0.0.0.0 --dev
