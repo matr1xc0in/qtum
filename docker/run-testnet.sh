@@ -8,6 +8,9 @@ mkdir -p "$QTUM_CHAIN_DATA"
 
 DOCKER_QTUM_NETWORK=qtum_network_bridge
 
+# Set this to 1 to enable debug log in console
+# QTUM_DEBUG=0
+
 docker run -it --rm \
   --name qtum_myapp \
   -e "QTUM_NETWORK=$QTUM_NETWORK" \
@@ -15,6 +18,7 @@ docker run -it --rm \
   -u $(id -u $USER) \
   --network=$DOCKER_QTUM_NETWORK \
   --ip 192.168.168.111 \
+  -e QTUM_DEBUG=$QTUM_DEBUG \
   -p 9899:9899 \
   -p 9888:9888 \
   -p 3889:3889 \

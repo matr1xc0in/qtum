@@ -19,6 +19,8 @@ gateway is `192.168.168.1`.
 * Override `/Procfile` and `qtumd-launch` to whitelist subnet `192.168.0.0/16` for JSON-RPC calls.
 The subnet `172.17.0.0/16` overlaps with `docker0` defaults, hence, we cahnge it to `192.168.0.0/16`
 and we assign IP from `192.168.0.0/16` to `qtumd` service.
+* Added `QTUM_DEBUG` env variable to swith debug mode `on|off`. `export QTUM_DEBUG=1` will enable debug.
+Be aware, this prints out a lot of logs on console. Default is `QTUM_DEBUG=0`.
 ```
 ./build.sh
 ```
@@ -30,6 +32,8 @@ created to interact with other local docker container (e.g. the one starts by `r
 It will have a local IP `192.168.168.168` assigned at startup on one of its interface.
 ```
 run-regtest.sh
+# to enable debug mode, debug default is disabled.
+export QTUM_DEBUG=1 ; run-regtest.sh
 ```
 
 To kick of a `/bin/sh` shell to manually interact with `qcli` (qtum console interface). This shares
@@ -78,6 +82,8 @@ you can do some deployment and testing on Qtum testnet. This automatically picks
 # The container IP is 192.168.168.111. If you want to connect to the qtumd testnet daemon
 # running inside the container.
 ./run-testnet.sh
+# to enable debug mode, debug default is disabled.
+export QTUM_DEBUG=1 ; run-testnet.sh
 ```
 
 `qcli` command to connect to the Qtum testnet client container running on your local laptop.

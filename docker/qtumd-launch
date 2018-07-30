@@ -18,12 +18,13 @@ case $QTUM_NETWORK in
 esac
 
 mkdir -p $QTUM_DATADIR
+QTUM_DEBUG=${QTUM_DEBUG:0}
 
 exec qtumd ${SELECT_NETWORK} \
   -rpcbind=0.0.0.0:3889 -rpcallowip=192.168.0.0/16 \
   -datadir=$QTUM_DATADIR \
   -logevents \
   -logips \
-  -debug=1 \
+  -debug=$QTUM_DEBUG \
   -rpcuser=$QTUM_RPC_USER -rpcpassword=$QTUM_RPC_PASS \
   -printtoconsole
