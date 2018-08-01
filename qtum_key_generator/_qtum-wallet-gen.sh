@@ -39,48 +39,22 @@ echo "# You typed in: $totalGenKeyPairs, will generate those now.";
 idx=0
 while [ $idx -lt $totalGenKeyPairs ]
 do
-  keys=$(openssl ecparam -name secp256k1 -genkey -noout | openssl ec -text -noout 2> /dev/null)
-
-  # extract private key in hex format, removing newlines, leading zeroes and semicolon
-  priv=$(printf "%s\n" $keys | grep priv -A 3 | tail -n +2 | tr -d '\n[:space:]:' | sed 's/^00//')
-
-  # make sure the private key has correct length
-  if [ ${#priv} -ne 64 ]; then
-      continue
-  fi
-
-  # extract public key in hex format, removing newlines, leading '04' and semicolon
-  pub=$(printf "%s\n" $keys | grep pub -A 5 | tail -n +2 | tr -d '\n[:space:]:' | sed 's/^04//')
-
-  # get the keecak hash, removing the trailing ' -' and taking the last 40 chars
-  # https://github.com/maandree/sha3sum
-  rawaddr=$(echo $pub | keccak-256sum -x -l | tr -d ' -' | tail -c 41)
-  addr="0x${rawaddr}"
-
-  cross_chk=$(echo $addr | tr [:upper:] [:lower:])
-  empty_addr=$(echo -n "0xdcc703c0E500B653Ca82273B7BFAd8045D85a470" | tr [:upper:] [:lower:])
-  if [ "$cross_chk" = "$empty_addr" ] ; then
-    echo "warn - how lucky you are to get an empty public key address $empty_addr :-) skipping and generate new one."
-    continue
-  fi
-  echo "ok - generated key pair idx=$idx"
-  qtum_addr=$(qcli -rpcconnect=192.168.168.44 -rpcport=13889 -regtest fromhexaddress $rawaddr)
-  # echo "$addr;$priv;$pub";
+  echo "ok - generating Qtum key pair idx=$idx"
+  qtum_addr=$(qcli -rpcconnect=192.168.168.44 -rpcport=13889 -regtest getnewaddress)
+  qtum_priv=$(qcli -rpcconnect=192.168.168.44 -rpcport=13889 -regtest dumpprivkey $qtum_addr)
   KEYPAIRS_QTUM_ADDR[$idx]="$qtum_addr"
-  KEYPAIRS_ADDR[$idx]="$addr"
-  KEYPAIRS_PRIV[$idx]="$priv"
+  KEYPAIRS_PRIV[$idx]="$qtum_priv"
   let idx=idx+1
 done # end while
 
 # Print out all mapping keys
-max_idx="${#KEYPAIRS_ADDR[@]}"
+max_idx="${#KEYPAIRS_QTUM_ADDR[@]}"
 let max_idx=max_idx-1
 for i in $(seq 0 $max_idx)
 do
   qtum_addr=${KEYPAIRS_QTUM_ADDR[$i]}
-  eth_addr=${KEYPAIRS_ADDR[$i]}
-  priv=${KEYPAIRS_PRIV[$i]}
-  echo -e "${qtum_addr}\t${eth_addr}\t${priv}"
+  qtum_priv=${KEYPAIRS_PRIV[$i]}
+  echo -e "${qtum_addr}\t${qtum_priv}"
 done
 
 exit 0

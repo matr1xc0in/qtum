@@ -25,15 +25,17 @@ Be aware, this prints out a lot of logs on console. Default is `QTUM_DEBUG=0`.
 ./build.sh
 ```
 
-**Remember to delete './regtest/qtum_data' if you make any changes**
+**Remember to delete './regtest/qtum_data' if you make any changes to start fresh**
 The following script kicks off a **local** Qtum network for **Testing** (aka `regtest`)
 running as container `qtum_regtest`. It also attach to the docker network `qtum_network_bridge`
 created to interact with other local docker container (e.g. the one starts by `run-shell.sh`).
 It will have a local IP `192.168.168.168` assigned at startup on one of its interface.
 ```
-run-regtest.sh
+./run-regtest.sh
 # to enable debug mode, debug default is disabled.
-export QTUM_DEBUG=1 ; run-regtest.sh
+export QTUM_DEBUG=1 ; ./run-regtest.sh
+# To clean up and start fresh with block=0
+rm -rf ./regtest; ./run-regtest.sh
 ```
 
 To kick of a `/bin/sh` shell to manually interact with `qcli` (qtum console interface). This shares
@@ -41,7 +43,35 @@ the same local directory `./regtest/qtum_data` with `run-regtest.sh` so you will
 This can interact with different Qtum network, however, you will need to specify the RPC address and port
 respectively inside the container when you invoke `qcli`.
 ```
+# Default connects to Qtum regtest network
 ./run-shell.sh
+# This connects to Testnet container. ./run-testnet.sh must be running.
+QTUM_NETWORK=testnet ./run-shell.sh
+```
+
+The chain `regtest` has 0 block from the beginning, and you won't have any Qtum to spend.
+The blocks in `regtest` mode will generate by itself gradually, but it's faster to
+just bootstrap it so you don't need to wait. You will see the following error message
+if you try to send a transaction from the beginning.
+```
+qcli -rpcconnect=192.168.168.168 sendtoaddress qfq9iwQ4sS83hJ99XveRZAhibV41PFngoT 10
+error code: -6
+error message:
+Insufficient funds
+```
+
+Let's bootstrap manually to generate `600` blocks with the following command.
+You need exactly `501+` blocks to take rewards (`regtest` per block reqard is `20000`).
+It takes about ~30 seconds or less. In `regtest` mode, `501+` blocks are sufficient.
+It does not matter if it is PoW/PoS. (In Qtum world, from the genesis block=0,
+PoW is applied to the first 5000 blocks, and it switches over to PoS after 5000 blocks).
+```
+qcli -rpcconnect=192.168.168.168 generate 600
+```
+e.g. now you have some balance in your Qtum coinbase wallet.
+```
+qcli -rpcconnect=192.168.168.168 getbalance
+2019989.99923200
 ```
 
 Testing connectivity from your `shell` container to others, you can use `curl`. e.g. testing
