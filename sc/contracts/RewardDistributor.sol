@@ -42,7 +42,7 @@ contract RewardDistributor is SafeMath {
 
     modifier restricted() {
         if (msg.sender != owner) {
-            revert();
+            revert("caller is not contract owner");
         }
         _;
     }
@@ -55,12 +55,12 @@ contract RewardDistributor is SafeMath {
     event RewardEvent(string msg, bool allowTokenEx);
 
     constructor(address _ex_tok_addr, bool enableTokenEx, uint256 _pos) public {
-        if (_ex_tok_addr == 0x0) revert();
+        if (_ex_tok_addr == 0x0) revert("cannot interact with null contract");
         owner = msg.sender;
         exchanging_token_addr = _ex_tok_addr;
         allowTokenEx = enableTokenEx;
         pos = _pos;
-        if(exchangeRate < 0) revert();
+        if(exchangeRate < 0) revert("exchange rate cannot be negative");
         emit RewardEvent("allow token exchange", enableTokenEx);
         emit RewardEvent("allow ipfs registration", allowIpfsReg);
     }
@@ -100,8 +100,8 @@ contract RewardDistributor is SafeMath {
     }
     */
 
-    function queryIPFSList(address wallet) view public returns (string) {
-        require(wallet != 0);
+    function queryIPFSList(address wallet) external view returns (string) {
+        require(wallet != 0, "null address cannot be queried");
         return ipfsMapping[wallet];
     }
 
@@ -109,9 +109,9 @@ contract RewardDistributor is SafeMath {
     Update record for new IPFS hash. Needs to burn gas. Fees are applied in the future.
     TODO: extend to more than 1 record to keep
      */
-    function registerIPFS(string ipfsHash) payable public returns (bool) {
-        require(bytes(ipfsHash).length > 0); // can't register empty hash
-        require(ipfsRecordOwner[ipfsHash] == 0); // new record only
+    function registerIPFS(string ipfsHash) external payable returns (bool) {
+        require(bytes(ipfsHash).length > 0, "cannot store empty hash"); // can't register empty hash
+        require(ipfsRecordOwner[ipfsHash] == 0, "ipfs hash already registered"); // new record only
         ipfsMapping[msg.sender] = ipfsHash;
         ipfsRecordOwner[ipfsHash] = msg.sender;
         emit RegisteredRecord(msg.sender, ipfsHash);
@@ -120,11 +120,11 @@ contract RewardDistributor is SafeMath {
         }
     }
 
-    function takerBuyAsset() payable public {
+    function takerBuyAsset() public payable {
         if (allowTokenEx || msg.sender == owner) {
             // Note that exchangeRate has already been validated as > 0
             uint256 tokens = safeDiv(safeMul(msg.value, 10**decimals), exchangeRate);
-            require(tokens > 0);
+            require(tokens > 0, "something went wrong on our math, token value negative");
             // ERC20Token contract will see the msg.sender as the 'RewardDistributor contract' address
             // This means, you will need Token balance under THIS CONTRACT!!!!!!!!!!!!!!!!!!!!!!
             if (InterfaceERC20(exchanging_token_addr).transfer(msg.sender, tokens)) {
@@ -133,11 +133,11 @@ contract RewardDistributor is SafeMath {
         }
         else
         {
-            revert();
+            revert("token purchase not allowed, or you are not contract owner");
         }
     }
 
-    function () payable public {
+    function () public payable {
         takerBuyAsset();
     }
 

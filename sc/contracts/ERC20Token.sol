@@ -7,18 +7,18 @@ pragma solidity ^0.4.20;
 contract SafeMath {
     function safeAdd(uint256 a, uint256 b) public pure returns (uint256 c) {
         c = a + b;
-        require(c >= a);
+        require(c >= a, "an overflow occured");
     }
     function safeSub(uint256 a, uint256 b) public pure returns (uint256 c) {
-        require(b <= a);
+        require(b <= a, "can't end up with negative value");
         c = a - b;
     }
     function safeMul(uint256 a, uint256 b) public pure returns (uint256 c) {
         c = a * b;
-        require(a == 0 || c / a == b);
+        require(a == 0 || c / a == b, "results exceeded 256 bits");
     }
     function safeDiv(uint256 a, uint256 b) public pure returns (uint256 c) {
-        require(b > 0);
+        require(b > 0, "can't end up with negative value");
         c = a / b;
     }
 }
@@ -31,13 +31,6 @@ interface InterfaceERC20 {
     function balanceOf(address _tokenOwner) external view returns (uint256 _balance);
     // Send _value amount of tokens to address _to
     function transfer(address _toAddr, uint256 _tokenAmount) external returns (bool success);
-    // Send _value amount of tokens from address _from to address _to
-    // The transferFrom method is used for a withdraw workflow, allowing contracts to send
-    // tokens on your behalf, for example to "deposit" to a contract address and/or to charge
-    // fees in sub-currencies; the command should fail unless the _from account has
-    // deliberately authorized the sender of the message via some mechanism; we propose
-    // these standardized APIs for approval:
-    function transferFrom(address _from, address _to, uint256 _tokenAmount) external returns (bool success);
     // Allow _spender to withdraw from your account, multiple times, up to the _value amount.
     // If this function is called again it overwrites the current allowance with _tokenAmount.
     function approve(address _spender, uint256 _tokenAmount) external returns (bool success);
@@ -73,7 +66,7 @@ contract ERC20Token is SafeMath, InterfaceERC20 {
 
     modifier restricted() {
         if (msg.sender != owner) {
-            revert();
+            revert("caller is not contract owner");
         }
         _;
     }
@@ -113,13 +106,13 @@ contract ERC20Token is SafeMath, InterfaceERC20 {
         }
 
         if (_balances[msg.sender] < tokenAmount) {
-            revert();
+            revert("caller does not have sufficient token");
             return false;
         }
         
         // This overflow rarely happens or should never happen
         if (safeAdd(_balances[toAddr], tokenAmount) < _balances[toAddr]) {
-            revert();
+            revert("the token receiver balance overflow and result in negative balance");
             return false;
         }
         
@@ -129,9 +122,9 @@ contract ERC20Token is SafeMath, InterfaceERC20 {
         return true;
     }
 
-    function transferFrom(address _from, address _to, uint256 _value) public returns (bool) {
+    function transferFrom(address _from, address _to, uint256 _value) external restricted returns (bool) {
         uint256 allowance = allowed[_from][msg.sender];
-        require(_balances[_from] >= _value && allowance >= _value);
+        require(_balances[_from] >= _value && allowance >= _value, "token does NOT have sufficient balance to transfer");
         _balances[_to] = safeAdd(_balances[_to], _value);
         _balances[_from] = safeSub(_balances[_from], _value);
         // protect overflow
@@ -154,6 +147,10 @@ contract ERC20Token is SafeMath, InterfaceERC20 {
      * Prevent eth coming in by accident
      */
     function () public payable {
-        revert();
+        revert("somebody is sending me free ether, i don't want it, really?");
+    }
+
+    function terminate() public restricted {
+        selfdestruct(owner);
     }
 }
