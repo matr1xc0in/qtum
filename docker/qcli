@@ -1,0 +1,12 @@
+#!/bin/sh
+
+QTUM_NETWORK=${QTUM_NETWORK:-"regtest"}
+QTUM_RPC_IP=${QTUM_RPC_IP:-"localhost"}
+
+if [ "x${QTUM_NETWORK}" = "xtestnet" ] ; then
+  qtum-cli -rpcconnect=$QTUM_RPC_IP -rpcport=3889 -rpcuser=$QTUM_RPC_USER -rpcpassword=$QTUM_RPC_PASS -testnet "$@"
+elif [ "x${QTUM_NETWORK}" = "xregtest" ] ; then
+  qtum-cli -rpcconnect=$QTUM_RPC_IP -rpcport=3889 -rpcuser=$QTUM_RPC_USER -rpcpassword=$QTUM_RPC_PASS -regtest "$@"
+else
+  qtum-cli "$@"
+fi

@@ -8,6 +8,7 @@ QTUM_CHAIN_DATA="$curr_dir/$QTUM_NETWORK/qtum_data"
 mkdir -p "$QTUM_CHAIN_DATA"
 
 DOCKER_QTUM_NETWORK=qtum_network_bridge
+QTUM_RPC_IP=""
 if [ "$QTUM_NETWORK" = "regtest" ] ; then
   QTUM_DOCKER_IP=${QTUM_DOCKER_IP:-"192.168.168.168"}
 elif [ "$QTUM_NETWORK" = "testnet" ] ; then
@@ -16,12 +17,15 @@ else
   echo "fatal - cannot recognize qtum network ${QTUM_NETWORK}, exiting!"
   exit -1
 fi
+# The network RPC we want to connect to in qcli/qtum-cli cmd
+QTUM_RPC_IP=$QTUM_DOCKER_IP
 
 echo "ok - connecting to Qtum $QTUM_NETWORK on IP $QTUM_DOCKER_IP"
 
 docker run -it --rm \
   --name qtum_shell_cli \
   -e "QTUM_NETWORK=$QTUM_NETWORK" \
+  -e "QTUM_RPC_IP=$QTUM_DOCKER_IP" \
   --entrypoint '' \
   --mount "type=bind,src=$QTUM_CHAIN_DATA,dst=/dapp" \
   -u $(id -u $USER) \

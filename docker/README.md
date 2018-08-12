@@ -19,8 +19,11 @@ gateway is `192.168.168.1`.
 * Override `/Procfile` and `qtumd-launch` to whitelist subnet `192.168.0.0/16` for JSON-RPC calls.
 The subnet `172.17.0.0/16` overlaps with `docker0` defaults, hence, we cahnge it to `192.168.0.0/16`
 and we assign IP from `192.168.0.0/16` to `qtumd` service.
+* `qtumd-launch` will bind to all interfaces `0.0.0.0` inside the container
 * Added `QTUM_DEBUG` env variable to swith debug mode `on|off`. `export QTUM_DEBUG=1` will enable debug.
 Be aware, this prints out a lot of logs on console. Default is `QTUM_DEBUG=0`.
+* Added `QTUM_RPC_IP` env variable for `qcli` so you no longer need to specify `-rpcconnect=x.x.x.x`
+everytime.
 ```
 ./build.sh
 ```
@@ -98,6 +101,7 @@ QTUM_RPC_PASS=test
 QTUM_GID=5888
 QTUM_RPC_USER=qtum
 QTUM_UID=501
+QTUM_RPC_IP=192.168.168.168
 QTUM_RPC=http://qtum:test@192.168.168.168:3889
 ```
 
