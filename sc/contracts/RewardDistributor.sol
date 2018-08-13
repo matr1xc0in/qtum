@@ -69,12 +69,12 @@ contract RewardDistributor is SafeMath {
         return exchanging_token_addr;
     }
 
-    function activate (bool flipTokenEx) public restricted {
+    function activate(bool flipTokenEx) public restricted {
         allowTokenEx = flipTokenEx;
         emit RewardEvent("allow token exchange", flipTokenEx);
     }
 
-    function activateRegistry (bool allowIpfsRegister) public restricted {
+    function activateRegistry(bool allowIpfsRegister) public restricted {
         allowIpfsReg = allowIpfsRegister;
         emit RewardEvent("allow ipfs registration", allowIpfsReg);
     }
