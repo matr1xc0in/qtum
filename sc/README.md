@@ -29,6 +29,14 @@ and kick off the test case.
 truffle test --network=development
 ```
 
+To run a single test case,
+```
+# It will still invoke all migration scripts first, but it will only trigger
+# one test case for the contract you want to test.
+truffle test --network=development test/15_simplegetset.js
+```
+
+
 * `solar` deployment onto Qtum local `regtest` for testing, e.g.
 ```
 $ solar deploy ERC20Token.sol '["NoSilo","TBD"]'
@@ -53,3 +61,10 @@ $ solar status
        owner: qW899g5aDNpPQ9NGbRcyWDenP7iNY1jfmW
 ```
 *The argument MUST be a json array. Use double quote to wrap String, and single quote for the entire array*
+
+
+
+# Known Issues
+* https://github.com/qtumproject/qtum/issues/548 Proxy contract cannot invoke a remote contract function.
+Workaround is to combine all contracts into 1 contract and deploy it. Yeah, gas killer and may be costly, etc.
+
