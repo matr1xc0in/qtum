@@ -44,9 +44,11 @@ RUN cd $HOME; \
 COPY _qtum-wallet-gen.sh $HOME/_qtum-wallet-gen.sh
 COPY start_qtumd.sh $HOME/start_qtumd.sh
 
-RUN chmod 755 $HOME/start_qtumd.sh
+RUN chmod 755 $HOME/start_qtumd.sh ; chown -R $QTUM_UID:$QTUM_GID $HOME
 
 USER $QTUM_UID
 WORKDIR $HOME
+
+ENTRYPOINT ["/home/qtumuser/start_qtumd.sh"]
 
 CMD ["./_qtum-wallet-gen.sh"]
