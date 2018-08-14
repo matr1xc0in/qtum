@@ -21,4 +21,5 @@ docker run -it \
   -e QTUM_DEBUG=$QTUM_DEBUG \
   -e QTUM_RPC_USER=qtum \
   -e QTUM_RPC_PASS=test \
-  qtum-gen-key
+  qtum-gen-key \
+  sh -l
