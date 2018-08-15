@@ -50,6 +50,7 @@ kill $(pgrep -n -x qtumd)
 and invoke the key-gen script, and type in the number for how many keys do
 you want to generate. Default is set to `10`.
 ```
+# The script has a loop to sleep for 5 seconds to wait for qtumd init
 ./_qtum-wallet-gen.sh
 ```
 
