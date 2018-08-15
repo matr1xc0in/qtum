@@ -29,27 +29,40 @@ and kick off the test case.
 truffle test --network=development
 ```
 
-* `solar` deployment onto Qtum local `regtest` for testing, e.g.
+To run a single test case,
 ```
-$ solar deploy ERC20Token.sol '["NoSilo","TBD"]'
-exec: solc [ERC20Token.sol --combined-json bin,metadata --optimize --allow-paths /dapp/contracts]
-🚀  All contracts confirmed
-   deployed ERC20Token.sol => 04a44512bd857510c43f019dfd6798cee959bdc2
-$ solar deploy RewardDistributor.sol  '["04a44512bd857510c43f019dfd6798cee959bdc2",true,100]'
-exec: solc [RewardDistributor.sol --combined-json bin,metadata --optimize --allow-paths /dapp/contracts]
-🚀  All contracts confirmed
-   deployed RewardDistributor.sol => 1bbd63601e7834c02e18d2e9e9071df6f984239d
-$ solar status
-✅  ERC20Token.sol
-        txid: 8bac47eebdcccd3dead21e6d8c558b7adb168e5f3ac79a0456a201b733741fa5
-     address: 04a44512bd857510c43f019dfd6798cee959bdc2
-   confirmed: true
-       owner: qTKLeXWdVdV8dUJtLtLDYiynr1fqqF2xWX
+# It will still invoke all migration scripts first, but it will only trigger
+# one test case for the contract you want to test.
+truffle test --network=development test/15_simplegetset.js
+```
 
-✅  RewardDistributor.sol
-        txid: 851b13f63d1da808f04d333810c903bba7bad32f1821d210eade194c9187c784
-     address: 1bbd63601e7834c02e18d2e9e9071df6f984239d
-   confirmed: true
-       owner: qW899g5aDNpPQ9NGbRcyWDenP7iNY1jfmW
+# Qtum Contract Deployment
+* `solar` deployment onto Qtum `testnet` - Deploy your smart contract.
+Copy the contract into the container shared volume from your host machine, e.g.
 ```
-*The argument MUST be a json array. Use double quote to wrap String, and single quote for the entire array*
+cp -rp sc/contracts docker/testnet/qtum_data/
+```
+and now, if you are already running the `./docker/run-shell.sh` console, and you follow
+from the parent's `README.md` file, you can access and deploy your contracts from the
+wallet created before `qVuqcjpBmRYGjjVZm1q1LFa28KJGQYPepC` (assumed you have funded from
+[Testnet faucet](http://testnet-faucet.qtum.info/#!/)) directly by running:
+```
+cd /dapp
+solar --qtum_rpc=$QTUM_RPC --qtum_sender=qVuqcjpBmRYGjjVZm1q1LFa28KJGQYPepC --optimize deploy --force contracts/SimpleGetSet.sol
+```
+e.g.
+```
+exec: solc [contracts/SimpleGetSet.sol --combined-json bin,metadata --optimize --allow-paths /dapp]
+🚀  All contracts confirmed
+   deployed contracts/SimpleGetSet.sol => 43b39311a957ced773bd5373d9c58338c53c48f5
+/dapp $ qcli fromhexaddress 43b39311a957ced773bd5373d9c58338c53c48f5
+qPjMYwN7QnjC1mdJYfSJKrZiqXfRC4Ne61
+```
+and you can look them up on https://testnet.qtum.org e.g.
+contract address - https://testnet.qtum.org/address/qPjMYwN7QnjC1mdJYfSJKrZiqXfRC4Ne61
+qtum address balance - https://testnet.qtum.org/address/qVuqcjpBmRYGjjVZm1q1LFa28KJGQYPepC
+
+# Known Issues
+* https://github.com/qtumproject/qtum/issues/548 Proxy contract cannot invoke a remote contract function.
+Workaround is to combine all contracts into 1 contract and deploy it. Yeah, gas killer and may be costly, etc.
+

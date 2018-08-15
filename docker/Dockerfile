@@ -25,8 +25,9 @@ RUN addgroup -g $QTUM_GID $QTUM_USER && \
 
 COPY ./Procfile /Procfile
 COPY ./qtumd-launch /usr/local/bin/qtumd-launch
+COPY ./qcli /usr/local/bin/qcli
 
-RUN chmod 755 /Procfile /usr/local/bin/qtumd-launch
+RUN chmod 755 /Procfile /usr/local/bin/qtumd-launch /usr/local/bin/qcli
 
 USER $QTUM_UID
 WORKDIR $HOME

@@ -19,8 +19,11 @@ gateway is `192.168.168.1`.
 * Override `/Procfile` and `qtumd-launch` to whitelist subnet `192.168.0.0/16` for JSON-RPC calls.
 The subnet `172.17.0.0/16` overlaps with `docker0` defaults, hence, we cahnge it to `192.168.0.0/16`
 and we assign IP from `192.168.0.0/16` to `qtumd` service.
+* `qtumd-launch` will bind to all interfaces `0.0.0.0` inside the container
 * Added `QTUM_DEBUG` env variable to swith debug mode `on|off`. `export QTUM_DEBUG=1` will enable debug.
 Be aware, this prints out a lot of logs on console. Default is `QTUM_DEBUG=0`.
+* Added `QTUM_RPC_IP` env variable for `qcli` so you no longer need to specify `-rpcconnect=x.x.x.x`
+everytime.
 ```
 ./build.sh
 ```
@@ -54,7 +57,7 @@ The blocks in `regtest` mode will generate by itself gradually, but it's faster 
 just bootstrap it so you don't need to wait. You will see the following error message
 if you try to send a transaction from the beginning.
 ```
-qcli -rpcconnect=192.168.168.168 sendtoaddress qfq9iwQ4sS83hJ99XveRZAhibV41PFngoT 10
+qcli sendtoaddress qfq9iwQ4sS83hJ99XveRZAhibV41PFngoT 10
 error code: -6
 error message:
 Insufficient funds
@@ -66,11 +69,11 @@ It takes about ~30 seconds or less. In `regtest` mode, `501+` blocks are suffici
 It does not matter if it is PoW/PoS. (In Qtum world, from the genesis block=0,
 PoW is applied to the first 5000 blocks, and it switches over to PoS after 5000 blocks).
 ```
-qcli -rpcconnect=192.168.168.168 generate 600
+qcli generate 600
 ```
 e.g. now you have some balance in your Qtum coinbase wallet.
 ```
-qcli -rpcconnect=192.168.168.168 getbalance
+qcli getbalance
 2019989.99923200
 ```
 
@@ -83,9 +86,9 @@ curl --connect-timeout 1 -sSf -v telnet://192.168.168.168:9888
 
 Some example `qcli` commands to connect to `qtum_regtest` container.
 ```
-qcli -rpcconnect=192.168.168.168 getblockchaininfo
-qcli -rpcconnect=192.168.168.168 getnetworkinfo
-qcli -rpcconnect=192.168.168.168 getwalletinfo
+qcli getblockchaininfo
+qcli getnetworkinfo
+qcli getwalletinfo
 ```
 
 The following env variables defined in the Docker images are useful. You can override them
@@ -98,6 +101,7 @@ QTUM_RPC_PASS=test
 QTUM_GID=5888
 QTUM_RPC_USER=qtum
 QTUM_UID=501
+QTUM_RPC_IP=192.168.168.168
 QTUM_RPC=http://qtum:test@192.168.168.168:3889
 ```
 
@@ -119,7 +123,23 @@ export QTUM_DEBUG=1 ; run-testnet.sh
 `qcli` command to connect to the Qtum testnet client container running on your local laptop.
 ```
 # TBD
-qcli -rpcconnect=192.168.168.111 getblockchaininfo
-qcli -rpcconnect=192.168.168.111 getnetworkinfo
-qcli -rpcconnect=192.168.168.111 getwalletinfo
+qcli getblockchaininfo
+qcli getnetworkinfo
+qcli getwalletinfo
+```
+
+# Import keys from key-generator
+
+Assume you use the `qtum_key_generator` key generator to generate a pair of key, you can
+import the private key and use it in your wallet after you import it.
+```
+# qVuqcjpBmRYGjjVZm1q1LFa28KJGQYPepC	cRgRqGfiP7wTdhUR4k9z9QBWsuBvSXmcVT4SeEoUSea7dKC3MLw7
+~ $ qcli importprivkey cRgRqGfiP7wTdhUR4k9z9QBWsuBvSXmcVT4SeEoUSea7dKC3MLw7 "from-keygen" true
+~ $ qcli listaccounts
+{
+  "": -225.30916246,
+  "xyz": 136.27344962,
+  "from-keygen": 78.00000000,
+  "abc": 163.09002760
+}
 ```
