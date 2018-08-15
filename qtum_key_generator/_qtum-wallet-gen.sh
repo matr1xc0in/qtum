@@ -3,6 +3,17 @@
 # Reference: https://github.com/vkobel/ethereum-generate-wallet
 # https://kobl.one/blog/create-full-ethereum-keypair-and-address/
 
+echo -n "Starting local qtumd instance."
+WARMING_UP=0
+while [ $WARMING_UP -le 5 ]
+do
+  sleep 1
+  echo -n '.'
+  let WARMING_UP++
+done
+echo ""
+echo "Qtumd warmed up, we are ready to go."
+
 totalGenKeyPairs=10
 declare -a KEYPAIRS_QTUM_ADDR
 declare -a KEYPAIRS_ADDR
