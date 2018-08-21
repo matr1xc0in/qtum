@@ -16,6 +16,7 @@
   "author": "Joe Wu <joe623@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "bs58": "^4.0.1",
     "ethereumjs-abi": "^0.6.5",
     "express": "^4.16.3",
     "qtumjs": "^1.9.1"

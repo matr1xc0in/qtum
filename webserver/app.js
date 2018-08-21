@@ -6,13 +6,15 @@ const rpc = new QtumRPC('http://qtum:test@localhost:3889');
 const contract = new Contract(rpc, repo.contracts['contracts/SimpleGetSet.sol']);
 
 const abi = require('ethereumjs-abi');
+// const bs58 = require('bs58')
 
 var express = require('express')
 var app = express()
 
 async function balanceOf(resp, address) {
     try{
-        console.log('invoking balanceOf with address:' + address);
+        // var encodedAddr = bs58.decode(address).toString('hex')
+        console.log(`invoking balanceOf with address:[${address}]`);
         const res = await contract.call('balanceOf(address)', [address]);
         const balance = res.outputs[0];
         console.log('balanceOf res:', res);
@@ -30,12 +32,18 @@ async function balanceOf(resp, address) {
     }
 }
 
-async function registerIpfs(resp, ipfsId) {
-    console.log('invoking sellTo with ipfsId:' + ipfsId);
+async function registerIpfs(resp, ipfsId, senderAddress) {
+    console.log(`invoking sellTo with ipfsId:[${ipfsId}] senderAddress:[${senderAddress}]`);
     try {
         var encodedData = abi.rawEncode(["string"], [ipfsId]);
-        console.log('encodedProduct:'+encodedData.toString('hex'));
-        const tx = await contract.send('sell_to(string)', [encodedData.toString('hex')]);
+        console.log('encodedIpfsId:'+encodedData.toString('hex'));
+        const tx = await contract.send(
+            'sell_to(string)', 
+            [encodedData.toString('hex')],
+            {
+                "senderAddress": senderAddress
+            }
+        );
         console.log('sellTo tx:', tx);
         resp.send(tx);
     } catch (e) {
@@ -56,7 +64,8 @@ app.get('/balance/:address', function (req, res) {
 
 app.post('/register/:ipfsId', function (req, res) {
     var ipfsId = req.params.ipfsId
-    registerIpfs(res, ipfsId)
+    var senderAddress = req.get('SENDER-ADDRESS')
+    registerIpfs(res, ipfsId, senderAddress)
   })
   
-app.listen(3000)
+app.listen(6000)
