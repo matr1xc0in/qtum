@@ -6,16 +6,16 @@ const rpc = new QtumRPC('http://qtum:test@localhost:3889');
 const contract = new Contract(rpc, repo.contracts['contracts/SimpleGetSet.sol']);
 
 const abi = require('ethereumjs-abi');
-// const bs58 = require('bs58')
+const base58check = require('base58check')
 
 var express = require('express')
 var app = express()
 
 async function balanceOf(resp, address) {
     try{
-        // var encodedAddr = bs58.decode(address).toString('hex')
-        console.log(`invoking balanceOf with address:[${address}]`);
-        const res = await contract.call('balanceOf(address)', [address]);
+        var encodedAddr = base58check.decode(address).data.toString('hex')
+        console.log(`invoking balanceOf with address:[${address}] encodedAddr:[${encodedAddr}]`);
+        const res = await contract.call('balanceOf(address)', [encodedAddr]);
         const balance = res.outputs[0];
         console.log('balanceOf res:', res);
         // var balance = abi.simpleDecode("balanceOf(address):(uint256)", res.executionResult.output)
