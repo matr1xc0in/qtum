@@ -10,6 +10,8 @@ npm i qtumjs
 npm i etherumjs-abi
 
 npm i express
+
+npm i base58check
 ```
 
 ## Package
