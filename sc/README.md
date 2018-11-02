@@ -62,6 +62,33 @@ and you can look them up on https://testnet.qtum.org e.g.
 contract address - https://testnet.qtum.org/address/qPjMYwN7QnjC1mdJYfSJKrZiqXfRC4Ne61
 qtum address balance - https://testnet.qtum.org/address/qVuqcjpBmRYGjjVZm1q1LFa28KJGQYPepC
 
+# Inspecting Contract and Functions
+If you have the docker container for `qcli` up and running (or see the `docker/README.md` in 
+this repository), you should be able to have a prompt.
+
+e.g. launching a `qcli` container that connects to `testnet`.
+```
+QTUM_NETWORK=testnet ./run-shell.sh
+```
+Now, you can run the command and argument to convert Qtum wallet address to Hexidecimal format.
+```
+/dapp $ qcli gethexaddress qVuqcjpBmRYGjjVZm1q1LFa28KJGQYPepC
+877feaaf2658f2faa90dc14528674c7e8331b980
+/dapp $ qcli gethexaddress qR7LMJGTNTktrhd5AUeyNkGQNAnPzdX5eu
+52d3d96201bc1edf7f47d14b0ef4fd4210a4dba0
+```
+
+You can use these hexidecimal wallet address to interact with your contract via the
+ABI player Web UI if you are running the `./docker/run-testnet.sh`.
+
+http://localhost:9899/abiplay/
+
+You can import the contract's ABI JSON file which can be found in `./webserver/solar.development.json`.
+**BE AWARE, If you update the contract and re-deployed, make sure you keep a copy of the ABI JSON file**
+here so others can pick it up and use it.
+
+![alt text](https://github.com/matr1xc0in/qtum/blob/master/sc/examples/abi_player_inspecting_functions.png)
+
 # Known Issues
 * https://github.com/qtumproject/qtum/issues/548 Proxy contract cannot invoke a remote contract function.
 Workaround is to combine all contracts into 1 contract and deploy it. Yeah, gas killer and may be costly, etc.
