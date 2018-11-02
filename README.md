@@ -1,6 +1,10 @@
 # Qtum
 A place for hackathon projects on Qtum.
 
+Contract deployed on Qtum Testnet (Contract Wallet is):
+https://testnet.qtum.org/address/qPjMYwN7QnjC1mdJYfSJKrZiqXfRC4Ne61
+
+* `QWallet` - The code for Qtum wallet is linked (https://github.com/HenryFanDi/QWallet/tree/qtum-ios-bsx)
 * `docker` - files and scripts to build/start a docker container for Qtum.
 Reference: http://book.qtum.site/en/part1/qtum-docker.html
 We added some minor security enhancement, and other sugar syntax t run it locally, that's it.

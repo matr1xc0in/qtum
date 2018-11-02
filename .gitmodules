@@ -1,0 +1,4 @@
+[submodule "QWallet"]
+	path = QWallet
+	url = https://github.com/HenryFanDi/QWallet.git
+	branch = qtum-ios-bsx

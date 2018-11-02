@@ -18,13 +18,6 @@ module.exports = {
       port: 7545,
       network_id: "*", // Match any network id
       gas: 4700000
-    },
-    rinkeby: {
-      host: "127.0.0.1", // Connect to geth on the specified
-      port: 8545,
-      from: "0x473a2ff25b3e963f700e25bd2c5e9412cbe961c0", // default address to use for any transaction Truffle makes during migrations
-      network_id: 15,
-      gas: 6000000 // Gas limit used for deploys
     }
   }
 };

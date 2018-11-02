@@ -1,0 +1,1622 @@
+{
+  "contracts": {
+    "contracts/SimpleCoupons.sol": {
+      "source": "contracts/SimpleCoupons.sol:SimpleCoupons",
+      "abi": [
+        {
+          "name": "name",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "string",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "terminate",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [],
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "decimals",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "uint8",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "balanceOf",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "_tokenOwner",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "owner",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "TOTALSUPPLY",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "symbol",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "string",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "safeSub",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "transfer",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "toAddr",
+              "type": "address",
+              "indexed": false
+            },
+            {
+              "name": "tokenAmount",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "",
+              "type": "bool",
+              "indexed": false
+            }
+          ],
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "safeDiv",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "safeMul",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "safeAdd",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "",
+          "type": "constructor",
+          "payable": false,
+          "inputs": [],
+          "outputs": null,
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "",
+          "type": "fallback",
+          "payable": true,
+          "inputs": null,
+          "outputs": null,
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "Transfer",
+          "type": "event",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "_from",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "name": "_to",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "name": "_tokenAmount",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": null,
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "Approval",
+          "type": "event",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "_owner",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "name": "_spender",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "name": "_tokenAmount",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": null,
+          "constant": false,
+          "anonymous": false
+        }
+      ],
+      "bin": "60c0604052600c60808190527f54657374436f6e7472616374000000000000000000000000000000000000000060a090815261003e9160029190610106565b506040805180820190915260038082527f544444000000000000000000000000000000000000000000000000000000000060209092019182526100819181610106565b50662386f26fc1000060045534801561009957600080fd5b5060008054600160a060020a03191633908117825580825260016020908152604080842069d3c21bcecceda100000090819055815190815290519293927fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef929181900390910190a36101a1565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061014757805160ff1916838001178555610174565b82800160010185558215610174579182015b82811115610174578251825591602001919060010190610159565b50610180929150610184565b5090565b61019e91905b80821115610180576000815560010161018a565b90565b6108c8806101b06000396000f3006080604052600436106100b95763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166306fdde03811461012f5780630c08bf88146101b9578063313ce567146101d057806370a08231146101fb5780638da5cb5b1461022e57806394a08c691461025f57806395d89b4114610274578063a293d1e814610289578063a9059cbb146102a4578063b5931f7c146102dc578063d05c78da146102f7578063e6cb901314610312575b6040805160e560020a62461bcd02815260206004820152603a60248201527f736f6d65626f64792069732073656e64696e67206d652066726565207174756d60448201527f2c206920646f6e27742077616e742069742c207265616c6c793f000000000000606482015290519081900360840190fd5b34801561013b57600080fd5b5061014461032d565b6040805160208082528351818301528351919283929083019185019080838360005b8381101561017e578181015183820152602001610166565b50505050905090810190601f1680156101ab5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b3480156101c557600080fd5b506101ce6103b8565b005b3480156101dc57600080fd5b506101e5610428565b6040805160ff9092168252519081900360200190f35b34801561020757600080fd5b5061021c600160a060020a036004351661042d565b60408051918252519081900360200190f35b34801561023a57600080fd5b50610243610448565b60408051600160a060020a039092168252519081900360200190f35b34801561026b57600080fd5b5061021c610457565b34801561028057600080fd5b50610144610465565b34801561029557600080fd5b5061021c6004356024356104c0565b3480156102b057600080fd5b506102c8600160a060020a0360043516602435610520565b604080519115158252519081900360200190f35b3480156102e857600080fd5b5061021c600435602435610765565b34801561030357600080fd5b5061021c6004356024356107d1565b34801561031e57600080fd5b5061021c600435602435610841565b6002805460408051602060018416156101000260001901909316849004601f810184900484028201840190925281815292918301828280156103b05780601f10610385576101008083540402835291602001916103b0565b820191906000526020600020905b81548152906001019060200180831161039357829003601f168201915b505050505081565b600054600160a060020a0316331461041a576040805160e560020a62461bcd02815260206004820152601c60248201527f63616c6c6572206973206e6f7420636f6e7472616374206f776e657200000000604482015290519081900360640190fd5b600054600160a060020a0316ff5b601281565b600160a060020a031660009081526001602052604090205490565b600054600160a060020a031681565b69d3c21bcecceda100000081565b6003805460408051602060026001851615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156103b05780601f10610385576101008083540402835291602001916103b0565b60008282111561051a576040805160e560020a62461bcd02815260206004820181905260248201527f63616e277420656e642075702077697468206e656761746976652076616c7565604482015290519081900360640190fd5b50900390565b600081151561056e57604080518381529051600160a060020a0385169133917fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef9181900360200190a361075f565b336000908152600160205260409020548211156105fb576040805160e560020a62461bcd02815260206004820152602560248201527f63616c6c657220646f6573206e6f7420686176652073756666696369656e742060448201527f746f6b656e000000000000000000000000000000000000000000000000000000606482015290519081900360840190fd5b600160a060020a03831660009081526001602052604090205461061e8184610841565b10156106c0576040805160e560020a62461bcd02815260206004820152604260248201527f74686520746f6b656e2072656365697665722062616c616e6365206f7665726660448201527f6c6f7720616e6420726573756c7420696e206e656761746976652062616c616e60648201527f6365000000000000000000000000000000000000000000000000000000000000608482015290519081900360a40190fd5b336000908152600160205260409020546106da90836104c0565b3360009081526001602052604080822092909255600160a060020a038516815220546107069083610841565b600160a060020a0384166000818152600160209081526040918290209390935580518581529051919233927fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef9281900390910190a35060015b92915050565b60008082116107be576040805160e560020a62461bcd02815260206004820181905260248201527f63616e277420656e642075702077697468206e656761746976652076616c7565604482015290519081900360640190fd5b81838115156107c957fe5b049392505050565b8181028215806107eb57508183828115156107e857fe5b04145b151561075f576040805160e560020a62461bcd02815260206004820152601960248201527f726573756c747320657863656564656420323536206269747300000000000000604482015290519081900360640190fd5b8181018281101561075f576040805160e560020a62461bcd02815260206004820152601360248201527f616e206f766572666c6f77206f63637572656400000000000000000000000000604482015290519081900360640190fd00a165627a7a723058200579b835fe3e7f0eba499d731b0e705d37d1a168e698c894c9b680793d6d09f90029",
+      "binhash": "ab08abf8bd52fedbae2d40a0dd418ab62ebbf739ecf3d5082d8ff917f04dbe4b",
+      "name": "SimpleCoupons",
+      "deployName": "contracts/SimpleCoupons.sol",
+      "address": "a58f070d0b7a645dcae6a0e8159206a2cc257f2d",
+      "txid": "28f6d407231f688e2ca79cd21c08e7988d1347f5592a0fe37acbe29613b98f18",
+      "createdAt": "2018-08-13T00:27:19.851252Z",
+      "confirmed": true,
+      "sender": "qQc9L9Af8u53L8kSx8PG3to7hEwAqdPic3",
+      "senderHex": "4d4e9657713d313e0d729ade97f9eaa94bd14b94"
+    },
+    "contracts/SimpleGetSet.sol": {
+      "source": "contracts/SimpleGetSet.sol:SimpleGetSet",
+      "abi": [
+        {
+          "name": "name",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "string",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "decimals",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "exchangeRate",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "you_bought",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "wallet",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "",
+              "type": "string",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "givemetokens",
+          "type": "function",
+          "payable": true,
+          "inputs": [],
+          "outputs": [],
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "sell_to",
+          "type": "function",
+          "payable": true,
+          "inputs": [
+            {
+              "name": "product",
+              "type": "string",
+              "indexed": false
+            }
+          ],
+          "outputs": [],
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "balanceOf",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "_tokenOwner",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "ownerKill",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [],
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "owner",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "TOTALSUPPLY",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "symbol",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "string",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "safeSub",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "transfer",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "toAddr",
+              "type": "address",
+              "indexed": false
+            },
+            {
+              "name": "tokenAmount",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "",
+              "type": "bool",
+              "indexed": false
+            }
+          ],
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "safeDiv",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "safeMul",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "myself",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "safeAdd",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "",
+          "type": "constructor",
+          "payable": false,
+          "inputs": [],
+          "outputs": null,
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "",
+          "type": "fallback",
+          "payable": true,
+          "inputs": null,
+          "outputs": null,
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "Transfer",
+          "type": "event",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "_from",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "name": "_to",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "name": "_tokenAmount",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": null,
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "Approval",
+          "type": "event",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "_owner",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "name": "_spender",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "name": "_tokenAmount",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": null,
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "GiveTokens",
+          "type": "event",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "buyer",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "name": "qtumSent",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "giveTokens",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": null,
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "SaleRecord",
+          "type": "event",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "buyer",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "name": "product",
+              "type": "string",
+              "indexed": false
+            }
+          ],
+          "outputs": null,
+          "constant": false,
+          "anonymous": false
+        }
+      ],
+      "bin": "60c0604052600c60808190527f54657374436f6e7472616374000000000000000000000000000000000000000060a090815261003e916003919061014c565b506040805180820190915260038082527f544444000000000000000000000000000000000000000000000000000000000060209092019182526100839160049161014c565b50662386f26fc1000060055534801561009b57600080fd5b5060008054600160a060020a03199081163317825560018054909116301790819055600160a060020a03168152600260205260408120620f42409055600554101561014757604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820181905260248201527f65786368616e676520726174652063616e6e6f74206265206e65676174697665604482015290519081900360640190fd5b6101e7565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061018d57805160ff19168380011785556101ba565b828001600101855582156101ba579182015b828111156101ba57825182559160200191906001019061019f565b506101c69291506101ca565b5090565b6101e491905b808211156101c657600081556001016101d0565b90565b610c6f806101f66000396000f3006080604052600436106100f05763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166306fdde0381146100fa578063313ce567146101845780633ba0b9a9146101ab57806344960ec5146101c05780634cd6f282146100f0578063616b48a7146101e157806370a08231146101f45780638d702122146102155780638da5cb5b1461022a57806394a08c691461025b57806395d89b4114610270578063a293d1e814610285578063a9059cbb146102a0578063b5931f7c146102d8578063d05c78da146102f3578063d276fd931461030e578063e6cb901314610323575b6100f861033e565b005b34801561010657600080fd5b5061010f6103eb565b6040805160208082528351818301528351919283929083019185019080838360005b83811015610149578181015183820152602001610131565b50505050905090810190601f1680156101765780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34801561019057600080fd5b50610199610479565b60408051918252519081900360200190f35b3480156101b757600080fd5b5061019961047e565b3480156101cc57600080fd5b5061010f600160a060020a0360043516610484565b6100f8600480356024810191013561058f565b34801561020057600080fd5b50610199600160a060020a0360043516610739565b34801561022157600080fd5b506100f8610754565b34801561023657600080fd5b5061023f6107c4565b60408051600160a060020a039092168252519081900360200190f35b34801561026757600080fd5b506101996107d3565b34801561027c57600080fd5b5061010f6107da565b34801561029157600080fd5b50610199600435602435610835565b3480156102ac57600080fd5b506102c4600160a060020a0360043516602435610895565b604080519115158252519081900360200190f35b3480156102e457600080fd5b50610199600435602435610a62565b3480156102ff57600080fd5b50610199600435602435610ace565b34801561031a57600080fd5b5061023f610b3e565b34801561032f57600080fd5b50610199600435602435610b4d565b600061035d61035534670de0b6b3a7640000610ace565b600554610a62565b9050600081116103dd576040805160e560020a62461bcd02815260206004820152603660248201527f736f6d657468696e672077656e742077726f6e67206f6e206f7572206d61746860448201527f2c20746f6b656e2076616c7565206e6567617469766500000000000000000000606482015290519081900360840190fd5b6103e73382610895565b5050565b6003805460408051602060026001851615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156104715780601f1061044657610100808354040283529160200191610471565b820191906000526020600020905b81548152906001019060200180831161045457829003601f168201915b505050505081565b601281565b60055481565b6060600160a060020a03821615156104e6576040805160e560020a62461bcd02815260206004820152601e60248201527f6e756c6c20616464726573732063616e6e6f7420626520717565726965640000604482015290519081900360640190fd5b600160a060020a03821660009081526006602090815260409182902080548351601f6002600019610100600186161502019093169290920491820184900484028101840190945280845290918301828280156105835780601f1061055857610100808354040283529160200191610583565b820191906000526020600020905b81548152906001019060200180831161056657829003601f168201915b50505050509050919050565b600081116105e7576040805160e560020a62461bcd02815260206004820152601f60248201527f63616e6e6f742073656c6c20656d7074792070726f647563742c207363616d00604482015290519081900360640190fd5b600782826040518083838082843790910194855250506040519283900360200190922054600160a060020a031615915061066d9050576040805160e560020a62461bcd02815260206004820181905260248201527f70726f64756374207374696c6c20617661696c61626c6520696e2073746f636b604482015290519081900360640190fd5b336000908152600660205260409020610687908383610ba8565b503360078383604051808383808284379190910194855250506040805160209481900385018120805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0397909716969096179095558385529284018590525033927fc2e720577655226aab5fc9065e537912c1012e6f845e078012e18ea19a653ad3928692508591908190810184848082843760405192018290039550909350505050a26107343360a8610895565b505050565b600160a060020a031660009081526002602052604090205490565b600054600160a060020a031633146107b6576040805160e560020a62461bcd02815260206004820152601c60248201527f63616c6c6572206973206e6f7420636f6e7472616374206f776e657200000000604482015290519081900360640190fd5b600054600160a060020a0316ff5b600054600160a060020a031681565b620f424081565b6004805460408051602060026001851615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156104715780601f1061044657610100808354040283529160200191610471565b60008282111561088f576040805160e560020a62461bcd02815260206004820181905260248201527f63616e277420656e642075702077697468206e656761746976652076616c7565604482015290519081900360640190fd5b50900390565b60008115156108e357604080518381529051600160a060020a0385169133917fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef9181900360200190a3610a5c565b600160a060020a0383166000908152600260205260409020546109068184610b4d565b10156109a8576040805160e560020a62461bcd02815260206004820152604260248201527f74686520746f6b656e2072656365697665722062616c616e6365206f7665726660448201527f6c6f7720616e6420726573756c7420696e206e656761746976652062616c616e60648201527f6365000000000000000000000000000000000000000000000000000000000000608482015290519081900360a40190fd5b600154600160a060020a03166000908152600260205260409020546109cd9083610835565b600154600160a060020a0390811660009081526002602052604080822093909355908516815220546109ff9083610b4d565b600160a060020a03808516600081815260026020908152604091829020949094556001548151878152915192949316927fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef92918290030190a35060015b92915050565b6000808211610abb576040805160e560020a62461bcd02815260206004820181905260248201527f63616e277420656e642075702077697468206e656761746976652076616c7565604482015290519081900360640190fd5b8183811515610ac657fe5b049392505050565b818102821580610ae85750818382811515610ae557fe5b04145b1515610a5c576040805160e560020a62461bcd02815260206004820152601960248201527f726573756c747320657863656564656420323536206269747300000000000000604482015290519081900360640190fd5b600154600160a060020a031681565b81810182811015610a5c576040805160e560020a62461bcd02815260206004820152601360248201527f616e206f766572666c6f77206f63637572656400000000000000000000000000604482015290519081900360640190fd5b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f10610be95782800160ff19823516178555610c16565b82800160010185558215610c16579182015b82811115610c16578235825591602001919060010190610bfb565b50610c22929150610c26565b5090565b610c4091905b80821115610c225760008155600101610c2c565b905600a165627a7a7230582036413ab2963453abb42908cb1876dd986989fc05f834005ce447550b5e79155a0029",
+      "binhash": "11418c79614a43c54e4741745dabaf768db91d125fb23bdf4c0f7143e982ef83",
+      "name": "SimpleGetSet",
+      "deployName": "contracts/SimpleGetSet.sol",
+      "address": "43b39311a957ced773bd5373d9c58338c53c48f5",
+      "txid": "9e48a9b99414487debfe31f32acec2985f0d9bfe617d334db958300d660a99d6",
+      "createdAt": "2018-08-15T00:34:07.0950223Z",
+      "confirmed": true,
+      "sender": "qVuqcjpBmRYGjjVZm1q1LFa28KJGQYPepC",
+      "senderHex": "877feaaf2658f2faa90dc14528674c7e8331b980"
+    },
+    "contracts/SimpleShopping.sol": {
+      "source": "contracts/SimpleShopping.sol:SimpleShopping",
+      "abi": [
+        {
+          "name": "decimals",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "exchangeRate",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "you_bought",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "wallet",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "",
+              "type": "string",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "givemetokens",
+          "type": "function",
+          "payable": true,
+          "inputs": [],
+          "outputs": [],
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "sell_to",
+          "type": "function",
+          "payable": true,
+          "inputs": [
+            {
+              "name": "product",
+              "type": "string",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "",
+              "type": "bool",
+              "indexed": false
+            }
+          ],
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "ownerKill",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [],
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "owner",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "exchanging_fake_token_addr",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "safeSub",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "safeDiv",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "safeMul",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "safeAdd",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "current_currency",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "tok_addr",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "",
+          "type": "constructor",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "_ex_tok_addr",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "outputs": null,
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "",
+          "type": "fallback",
+          "payable": true,
+          "inputs": null,
+          "outputs": null,
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "GiveTokens",
+          "type": "event",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "buyer",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "name": "qtumSent",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "giveTokens",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": null,
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "SaleRecord",
+          "type": "event",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "buyer",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "name": "product",
+              "type": "string",
+              "indexed": false
+            }
+          ],
+          "outputs": null,
+          "constant": false,
+          "anonymous": false
+        }
+      ],
+      "bin": "6080604052662386f26fc1000060025534801561001b57600080fd5b50604051602080610c198339810160405251600160a060020a03811615156100ca57604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152602260248201527f63616e6e6f7420696e7465726163742077697468206e756c6c20636f6e74726160448201527f6374000000000000000000000000000000000000000000000000000000000000606482015290519081900360840190fd5b6000805433600160a060020a031991821617825560018054909116600160a060020a038416179055600254101561016257604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820181905260248201527f65786368616e676520726174652063616e6e6f74206265206e65676174697665604482015290519081900360640190fd5b50610aa7806101726000396000f3006080604052600436106100c45763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663313ce56781146100ce5780633ba0b9a9146100f557806344960ec51461010a5780634cd6f282146100c4578063616b48a7146101a05780638d702122146101c75780638da5cb5b146101dc578063964daf591461020d578063a293d1e814610222578063b5931f7c1461023d578063d05c78da14610258578063e6cb901314610273578063fc87c3491461028e575b6100cc6102a3565b005b3480156100da57600080fd5b506100e361041e565b60408051918252519081900360200190f35b34801561010157600080fd5b506100e3610423565b34801561011657600080fd5b5061012b600160a060020a0360043516610429565b6040805160208082528351818301528351919283929083019185019080838360005b8381101561016557818101518382015260200161014d565b50505050905090810190601f1680156101925780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6101b36004803560248101910135610534565b604080519115158252519081900360200190f35b3480156101d357600080fd5b506100cc6107ae565b3480156101e857600080fd5b506101f161081e565b60408051600160a060020a039092168252519081900360200190f35b34801561021957600080fd5b506101f161082d565b34801561022e57600080fd5b506100e360043560243561083c565b34801561024957600080fd5b506100e360043560243561089c565b34801561026457600080fd5b506100e3600435602435610908565b34801561027f57600080fd5b506100e3600435602435610978565b34801561029a57600080fd5b506101f16109d3565b60006102c26102ba34670de0b6b3a7640000610908565b60025461089c565b905060008111610342576040805160e560020a62461bcd02815260206004820152603660248201527f736f6d657468696e672077656e742077726f6e67206f6e206f7572206d61746860448201527f2c20746f6b656e2076616c7565206e6567617469766500000000000000000000606482015290519081900360840190fd5b600154604080517fa9059cbb000000000000000000000000000000000000000000000000000000008152336004820152602481018490529051600160a060020a039092169163a9059cbb916044808201926020929091908290030181600087803b1580156103af57600080fd5b505af11580156103c3573d6000803e3d6000fd5b505050506040513d60208110156103d957600080fd5b50511561041b576040805134815260208101839052815133927f1a7909920ae4328279efaaad108dd7050bba22c6a63388360a769939f54ecc79928290030190a25b50565b601281565b60025481565b6060600160a060020a038216151561048b576040805160e560020a62461bcd02815260206004820152601e60248201527f6e756c6c20616464726573732063616e6e6f7420626520717565726965640000604482015290519081900360640190fd5b600160a060020a03821660009081526003602090815260409182902080548351601f6002600019610100600186161502019093169290920491820184900484028101840190945280845290918301828280156105285780601f106104fd57610100808354040283529160200191610528565b820191906000526020600020905b81548152906001019060200180831161050b57829003601f168201915b50505050509050919050565b600080821161058d576040805160e560020a62461bcd02815260206004820152601f60248201527f63616e6e6f742073656c6c20656d7074792070726f647563742c207363616d00604482015290519081900360640190fd5b600483836040518083838082843790910194855250506040519283900360200190922054600160a060020a03161591506106139050576040805160e560020a62461bcd02815260206004820181905260248201527f70726f64756374207374696c6c20617661696c61626c6520696e2073746f636b604482015290519081900360640190fd5b33600090815260036020526040902061062d9084846109e3565b503360048484604051808383808284379190910194855250506040805160209481900385018120805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0397909716969096179095558385529284018690525033927fc2e720577655226aab5fc9065e537912c1012e6f845e078012e18ea19a653ad3928792508691908190810184848082843760405192018290039550909350505050a2600154604080517fa9059cbb00000000000000000000000000000000000000000000000000000000815233600482015260a860248201529051600160a060020a039092169163a9059cbb916044808201926020929091908290030181600087803b15801561073c57600080fd5b505af1158015610750573d6000803e3d6000fd5b505050506040513d602081101561076657600080fd5b5051156107a8576040805134815260a86020820152815133927f1a7909920ae4328279efaaad108dd7050bba22c6a63388360a769939f54ecc79928290030190a25b92915050565b600054600160a060020a03163314610810576040805160e560020a62461bcd02815260206004820152601c60248201527f63616c6c6572206973206e6f7420636f6e7472616374206f776e657200000000604482015290519081900360640190fd5b600054600160a060020a0316ff5b600054600160a060020a031681565b600154600160a060020a031681565b600082821115610896576040805160e560020a62461bcd02815260206004820181905260248201527f63616e277420656e642075702077697468206e656761746976652076616c7565604482015290519081900360640190fd5b50900390565b60008082116108f5576040805160e560020a62461bcd02815260206004820181905260248201527f63616e277420656e642075702077697468206e656761746976652076616c7565604482015290519081900360640190fd5b818381151561090057fe5b049392505050565b818102821580610922575081838281151561091f57fe5b04145b15156107a8576040805160e560020a62461bcd02815260206004820152601960248201527f726573756c747320657863656564656420323536206269747300000000000000604482015290519081900360640190fd5b818101828110156107a8576040805160e560020a62461bcd02815260206004820152601360248201527f616e206f766572666c6f77206f63637572656400000000000000000000000000604482015290519081900360640190fd5b600154600160a060020a03165b90565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f10610a245782800160ff19823516178555610a51565b82800160010185558215610a51579182015b82811115610a51578235825591602001919060010190610a36565b50610a5d929150610a61565b5090565b6109e091905b80821115610a5d5760008155600101610a675600a165627a7a723058203095e3c697b9ad41c13f72929b635017374fbab17e2f9cee981e37ca510d45de0029",
+      "binhash": "d100cdd08652862f3510f3348163b95f7b15d494cda8b6403336945c8446ec70",
+      "name": "SimpleShopping",
+      "deployName": "contracts/SimpleShopping.sol",
+      "address": "59342744e482f176a5a964b79f90bdafa698a7f3",
+      "txid": "c3fee9c304cb6e6cc56002abe0e1497de38222bf9523ee1d8f2632ed1a1c52b5",
+      "createdAt": "2018-08-13T00:29:02.307968Z",
+      "confirmed": true,
+      "sender": "qQc9L9Af8u53L8kSx8PG3to7hEwAqdPic3",
+      "senderHex": "4d4e9657713d313e0d729ade97f9eaa94bd14b94"
+    }
+  },
+  "libraries": {},
+  "related": {
+    "contracts/SimpleCoupons.sol:SafeMath": {
+      "source": "contracts/SimpleCoupons.sol:SafeMath",
+      "name": "SafeMath",
+      "abi": [
+        {
+          "name": "safeSub",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "safeDiv",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "safeMul",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "safeAdd",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        }
+      ],
+      "bin": "608060405234801561001057600080fd5b506102ad806100206000396000f3006080604052600436106100615763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663a293d1e88114610066578063b5931f7c14610093578063d05c78da146100ae578063e6cb9013146100c9575b600080fd5b34801561007257600080fd5b506100816004356024356100e4565b60408051918252519081900360200190f35b34801561009f57600080fd5b50610081600435602435610144565b3480156100ba57600080fd5b506100816004356024356101b0565b3480156100d557600080fd5b50610081600435602435610226565b60008282111561013e576040805160e560020a62461bcd02815260206004820181905260248201527f63616e277420656e642075702077697468206e656761746976652076616c7565604482015290519081900360640190fd5b50900390565b600080821161019d576040805160e560020a62461bcd02815260206004820181905260248201527f63616e277420656e642075702077697468206e656761746976652076616c7565604482015290519081900360640190fd5b81838115156101a857fe5b049392505050565b8181028215806101ca57508183828115156101c757fe5b04145b1515610220576040805160e560020a62461bcd02815260206004820152601960248201527f726573756c747320657863656564656420323536206269747300000000000000604482015290519081900360640190fd5b92915050565b81810182811015610220576040805160e560020a62461bcd02815260206004820152601360248201527f616e206f766572666c6f77206f63637572656400000000000000000000000000604482015290519081900360640190fd00a165627a7a723058208c56fe19e9fbdfa18cfd2984a5b2b8fbb9b18699ae8a88e3076ad4b731afd6bd0029",
+      "binhash": "4dd583dcfeb3e2056ebc2d5ac5058bb7a39d4ace6f42ec8e2738287e126c41fa"
+    },
+    "contracts/SimpleCoupons.sol:SimpleCoupons": {
+      "source": "contracts/SimpleCoupons.sol:SimpleCoupons",
+      "name": "SimpleCoupons",
+      "abi": [
+        {
+          "name": "name",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "string",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "terminate",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [],
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "decimals",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "uint8",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "balanceOf",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "_tokenOwner",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "owner",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "TOTALSUPPLY",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "symbol",
+          "type": "function",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "",
+              "type": "string",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "safeSub",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "transfer",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "toAddr",
+              "type": "address",
+              "indexed": false
+            },
+            {
+              "name": "tokenAmount",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "",
+              "type": "bool",
+              "indexed": false
+            }
+          ],
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "safeDiv",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "safeMul",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "safeAdd",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "",
+          "type": "constructor",
+          "payable": false,
+          "inputs": [],
+          "outputs": null,
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "",
+          "type": "fallback",
+          "payable": true,
+          "inputs": null,
+          "outputs": null,
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "Transfer",
+          "type": "event",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "_from",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "name": "_to",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "name": "_tokenAmount",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": null,
+          "constant": false,
+          "anonymous": false
+        },
+        {
+          "name": "Approval",
+          "type": "event",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "_owner",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "name": "_spender",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "name": "_tokenAmount",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": null,
+          "constant": false,
+          "anonymous": false
+        }
+      ],
+      "bin": "60c0604052600c60808190527f54657374436f6e7472616374000000000000000000000000000000000000000060a090815261003e9160029190610106565b506040805180820190915260038082527f544444000000000000000000000000000000000000000000000000000000000060209092019182526100819181610106565b50662386f26fc1000060045534801561009957600080fd5b5060008054600160a060020a03191633908117825580825260016020908152604080842069d3c21bcecceda100000090819055815190815290519293927fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef929181900390910190a36101a1565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061014757805160ff1916838001178555610174565b82800160010185558215610174579182015b82811115610174578251825591602001919060010190610159565b50610180929150610184565b5090565b61019e91905b80821115610180576000815560010161018a565b90565b6108c8806101b06000396000f3006080604052600436106100b95763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166306fdde03811461012f5780630c08bf88146101b9578063313ce567146101d057806370a08231146101fb5780638da5cb5b1461022e57806394a08c691461025f57806395d89b4114610274578063a293d1e814610289578063a9059cbb146102a4578063b5931f7c146102dc578063d05c78da146102f7578063e6cb901314610312575b6040805160e560020a62461bcd02815260206004820152603a60248201527f736f6d65626f64792069732073656e64696e67206d652066726565207174756d60448201527f2c206920646f6e27742077616e742069742c207265616c6c793f000000000000606482015290519081900360840190fd5b34801561013b57600080fd5b5061014461032d565b6040805160208082528351818301528351919283929083019185019080838360005b8381101561017e578181015183820152602001610166565b50505050905090810190601f1680156101ab5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b3480156101c557600080fd5b506101ce6103b8565b005b3480156101dc57600080fd5b506101e5610428565b6040805160ff9092168252519081900360200190f35b34801561020757600080fd5b5061021c600160a060020a036004351661042d565b60408051918252519081900360200190f35b34801561023a57600080fd5b50610243610448565b60408051600160a060020a039092168252519081900360200190f35b34801561026b57600080fd5b5061021c610457565b34801561028057600080fd5b50610144610465565b34801561029557600080fd5b5061021c6004356024356104c0565b3480156102b057600080fd5b506102c8600160a060020a0360043516602435610520565b604080519115158252519081900360200190f35b3480156102e857600080fd5b5061021c600435602435610765565b34801561030357600080fd5b5061021c6004356024356107d1565b34801561031e57600080fd5b5061021c600435602435610841565b6002805460408051602060018416156101000260001901909316849004601f810184900484028201840190925281815292918301828280156103b05780601f10610385576101008083540402835291602001916103b0565b820191906000526020600020905b81548152906001019060200180831161039357829003601f168201915b505050505081565b600054600160a060020a0316331461041a576040805160e560020a62461bcd02815260206004820152601c60248201527f63616c6c6572206973206e6f7420636f6e7472616374206f776e657200000000604482015290519081900360640190fd5b600054600160a060020a0316ff5b601281565b600160a060020a031660009081526001602052604090205490565b600054600160a060020a031681565b69d3c21bcecceda100000081565b6003805460408051602060026001851615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156103b05780601f10610385576101008083540402835291602001916103b0565b60008282111561051a576040805160e560020a62461bcd02815260206004820181905260248201527f63616e277420656e642075702077697468206e656761746976652076616c7565604482015290519081900360640190fd5b50900390565b600081151561056e57604080518381529051600160a060020a0385169133917fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef9181900360200190a361075f565b336000908152600160205260409020548211156105fb576040805160e560020a62461bcd02815260206004820152602560248201527f63616c6c657220646f6573206e6f7420686176652073756666696369656e742060448201527f746f6b656e000000000000000000000000000000000000000000000000000000606482015290519081900360840190fd5b600160a060020a03831660009081526001602052604090205461061e8184610841565b10156106c0576040805160e560020a62461bcd02815260206004820152604260248201527f74686520746f6b656e2072656365697665722062616c616e6365206f7665726660448201527f6c6f7720616e6420726573756c7420696e206e656761746976652062616c616e60648201527f6365000000000000000000000000000000000000000000000000000000000000608482015290519081900360a40190fd5b336000908152600160205260409020546106da90836104c0565b3360009081526001602052604080822092909255600160a060020a038516815220546107069083610841565b600160a060020a0384166000818152600160209081526040918290209390935580518581529051919233927fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef9281900390910190a35060015b92915050565b60008082116107be576040805160e560020a62461bcd02815260206004820181905260248201527f63616e277420656e642075702077697468206e656761746976652076616c7565604482015290519081900360640190fd5b81838115156107c957fe5b049392505050565b8181028215806107eb57508183828115156107e857fe5b04145b151561075f576040805160e560020a62461bcd02815260206004820152601960248201527f726573756c747320657863656564656420323536206269747300000000000000604482015290519081900360640190fd5b8181018281101561075f576040805160e560020a62461bcd02815260206004820152601360248201527f616e206f766572666c6f77206f63637572656400000000000000000000000000604482015290519081900360640190fd00a165627a7a723058200579b835fe3e7f0eba499d731b0e705d37d1a168e698c894c9b680793d6d09f90029",
+      "binhash": "ab08abf8bd52fedbae2d40a0dd418ab62ebbf739ecf3d5082d8ff917f04dbe4b"
+    },
+    "contracts/SimpleGetSet.sol:SafeMath": {
+      "source": "contracts/SimpleGetSet.sol:SafeMath",
+      "name": "SafeMath",
+      "abi": [
+        {
+          "name": "safeSub",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "safeDiv",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "safeMul",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        },
+        {
+          "name": "safeAdd",
+          "type": "function",
+          "payable": false,
+          "inputs": [
+            {
+              "name": "a",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "name": "b",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "outputs": [
+            {
+              "name": "c",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "constant": true,
+          "anonymous": false
+        }
+      ],
+      "bin": "608060405234801561001057600080fd5b506102ad806100206000396000f3006080604052600436106100615763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663a293d1e88114610066578063b5931f7c14610093578063d05c78da146100ae578063e6cb9013146100c9575b600080fd5b34801561007257600080fd5b506100816004356024356100e4565b60408051918252519081900360200190f35b34801561009f57600080fd5b50610081600435602435610144565b3480156100ba57600080fd5b506100816004356024356101b0565b3480156100d557600080fd5b50610081600435602435610226565b60008282111561013e576040805160e560020a62461bcd02815260206004820181905260248201527f63616e277420656e642075702077697468206e656761746976652076616c7565604482015290519081900360640190fd5b50900390565b600080821161019d576040805160e560020a62461bcd02815260206004820181905260248201527f63616e277420656e642075702077697468206e656761746976652076616c7565604482015290519081900360640190fd5b81838115156101a857fe5b049392505050565b8181028215806101ca57508183828115156101c757fe5b04145b1515610220576040805160e560020a62461bcd02815260206004820152601960248201527f726573756c747320657863656564656420323536206269747300000000000000604482015290519081900360640190fd5b92915050565b81810182811015610220576040805160e560020a62461bcd02815260206004820152601360248201527f616e206f766572666c6f77206f63637572656400000000000000000000000000604482015290519081900360640190fd00a165627a7a72305820334a18958affe06b43cc96741a6e9f32150324a6dba117fae0e32d05e48e42720029",
+      "binhash": "4dd583dcfeb3e2056ebc2d5ac5058bb7a39d4ace6f42ec8e2738287e126c41fa"
+    }
+  }
+}
+
